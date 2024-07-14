@@ -4,6 +4,7 @@ import { auth, googleProvider } from '../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  // State variables for form inputs and UI state
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +14,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Function to update the current time every second
     const updateTime = () => {
       const now = new Date();
       const hours = String(now.getHours()).padStart(2, '0');
@@ -20,43 +22,44 @@ const Register = () => {
       setTime(`${hours}:${minutes}`);
     };
 
-    const interval = setInterval(updateTime, 1000);
-    updateTime();
-    return () => clearInterval(interval);
+    const interval = setInterval(updateTime, 1000); // Update time every second
+    updateTime(); // Initialize immediately
+    return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
-
   const handleRegister = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission
     if (!agreeTerms) {
-      alert('You must agree to the terms and services.');
+      alert('You must agree to the terms and services.'); // Check if terms are agreed
       return;
     }
 
+    // Create user object and store it in local storage
     const user = { username, email, password };
     localStorage.setItem('user', JSON.stringify(user));
-    navigate('/Postlogin');
+    navigate('/Postlogin'); // Navigate to the post-login screen
   };
 
   const handleGoogleLogin = async () => {
     try {
+      // Sign in with Google using Firebase authentication
       const userCredential = await signInWithPopup(auth, googleProvider);
       localStorage.setItem('user', JSON.stringify(userCredential.user));
-      navigate('/Postlogin');
+      navigate('/Postlogin'); // Navigate to the post-login screen
     } catch (error) {
-      console.error(error);
+      console.error(error); // Log any errors
     }
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(prevState => !prevState);
+    setShowPassword(prevState => !prevState); // Toggle password visibility
   };
 
   return (
     <div className="flex flex-col items-center md:justify-center h-screen overflow-hidden md:overflow-scroll">
       {/* Top Bar */}
       <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
-        <div className="text-lg font-semibold">{time}</div>
+        <div className="text-lg font-semibold">{time}</div> {/* Display current time */}
         <div className="flex items-center">
           <img src="/network.png" alt="Network" className="h-5 w-5 mx-1" />
           <img src="/wifi.png" alt="Wi-Fi" className="h-5 w-5 mx-1" />
@@ -64,23 +67,23 @@ const Register = () => {
         </div>
       </div>
 
-      <div className='md:shadow-md md:bg-gray-50 se:mt-12 s8:mt-16 mt-24 mx-6 md:p-8' >
+      <div className='md:shadow-md md:bg-gray-50 se:mt-12 s8:mt-16 mt-24 mx-6 md:p-8'>
         <div className='w-80'>
           <h1 className="font-bold se:text-2xl text-3xl">Create Your new <br /> Account.</h1>
           <p className='text-sm text-gray-400 mt-2'>Create an account to start looking for the food <br /> you like</p>
         </div>
         <div className=''>
-          <form className=" se:mt-2 mt-6" onSubmit={handleRegister}>
+          <form className="se:mt-2 mt-6" onSubmit={handleRegister}>
             <label className='text-gray-900 font-semibold'>Email Address</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter Email"
-              className="border border-gray-300 se:p-1  p-3 mb-4 w-full rounded-lg mt-2"
+              className="border border-gray-300 se:p-1 p-3 mb-4 w-full rounded-lg mt-2"
               required
             />
-             <label className='text-gray-900 font-semibold'>User Name</label>
+            <label className='text-gray-900 font-semibold'>User Name</label>
             <input
               type="text"
               value={username}
@@ -126,7 +129,7 @@ const Register = () => {
           </form>
         </div>
       </div>
-      <div className=' se:mt-2 se:mb-1 mt-8 mb-4 flex justify-center items-center'>
+      <div className='se:mt-2 se:mb-1 mt-8 mb-4 flex justify-center items-center'>
         <div className='border-t-2 w-24 mr-2 border-gray-300'></div>
         Or Sign up with
         <div className='border-t-2 w-24 ml-2 border-gray-300'></div>
@@ -145,7 +148,7 @@ const Register = () => {
 
       {/* Copyright Section */}
       <div className="absolute bottom-4 text-center text-sm ">
-        <div className='border-t-4  w-48 border-black rounded-full'></div>
+        <div className='border-t-4 w-48 border-black rounded-full'></div>
       </div>
     </div>
   );

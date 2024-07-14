@@ -4,6 +4,7 @@ import { auth, googleProvider } from '../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    // State variables for email, password, password visibility, current time, and navigation
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -11,6 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Function to update the current time
         const updateTime = () => {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
@@ -18,41 +20,42 @@ const Login = () => {
             setTime(`${hours}:${minutes}`);
         };
 
-        const interval = setInterval(updateTime, 1000);
+        const interval = setInterval(updateTime, 1000); // Update time every second
         updateTime(); // Initialize immediately
-        return () => clearInterval(interval);
+        return () => clearInterval(interval); // Cleanup on unmount
     }, []);
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const storedUser = JSON.parse(localStorage.getItem('user'));
+        const storedUser = JSON.parse(localStorage.getItem('user')); // Retrieve user from localStorage
         
+        // Check if stored user matches input credentials
         if (storedUser && storedUser.email === email && storedUser.password === password) {
-            navigate('/Postlogin');
+            navigate('/Postlogin'); // Navigate to Postlogin if successful
         } else {
-            alert("Invalid email or password, please register!");
+            alert("Invalid email or password, please register!"); // Alert on failure
         }
     };
 
     const handleGoogleLogin = async () => {
         try {
-            const userCredential = await signInWithPopup(auth, googleProvider);
-            localStorage.setItem('user', JSON.stringify(userCredential.user));
-            navigate('/Postlogin');
+            const userCredential = await signInWithPopup(auth, googleProvider); // Google sign-in
+            localStorage.setItem('user', JSON.stringify(userCredential.user)); // Store user in localStorage
+            navigate('/Postlogin'); // Navigate to Postlogin
         } catch (error) {
-            console.error(error);
+            console.error(error); // Log any errors
         }
     };
 
     const togglePasswordVisibility = () => {
-        setShowPassword(prevState => !prevState);
+        setShowPassword(prevState => !prevState); // Toggle password visibility
     };
 
     return (
         <div className="flex flex-col items-center md:justify-center h-screen overflow-hidden md:overflow-scroll">
             {/* Top Bar */}
-            <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6  ">
-                <div className="text-lg font-semibold">{time}</div>
+            <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
+                <div className="text-lg font-semibold">{time}</div> {/* Display current time */}
                 <div className="flex items-center">
                     <img src="/network.png" alt="Network" className="h-5 w-5 mx-1" />
                     <img src="/wifi.png" alt="Wi-Fi" className="h-5 w-5 mx-1" />
@@ -60,12 +63,12 @@ const Login = () => {
                 </div>
             </div>
 
-            <div className='md:shadow-md md:bg-gray-50 md:p-8  se:mt-12  mt-24  mx-6'>
+            <div className='md:shadow-md md:bg-gray-50 md:p-8 se:mt-12 mt-24 mx-6'>
                 <div className='w-80'>
                     <h1 className="font-bold text-3xl">Login to Your <br /> Account.</h1>
                     <p className='text-sm'>Please sign in to your account</p>
                 </div>
-                <div className=''>
+                <div>
                     <form className="mt-6" onSubmit={handleLogin}>
                         <label className='text-gray-900 font-semibold'>Email Address</label>
                         <input
@@ -105,7 +108,7 @@ const Login = () => {
                 Or Sign in with
                 <div className='border-t-2 w-24 ml-2 border-gray-300'></div>
             </div>
-            <div className="flex justify-center ">
+            <div className="flex justify-center">
                 <img
                     src="/google.png"
                     onClick={handleGoogleLogin}
@@ -119,7 +122,7 @@ const Login = () => {
 
             {/* Copyright Section */}
             <div className="absolute bottom-4 text-center text-sm ">
-                <div className='border-t-4  w-48 border-black rounded-full'></div>
+                <div className='border-t-4 w-48 border-black rounded-full'></div>
             </div>
         </div>
     );
