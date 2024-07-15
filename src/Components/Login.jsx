@@ -120,9 +120,9 @@ const Login = () => {
                 <span className='text-black font-semibold'>Don't have an account?</span> <span className='text-[#FE8C00] font-semibold'>Register</span>
             </Link>
 
-            {/* Copyright Section */}
-            <div className="absolute bottom-4 text-center text-sm ">
-                <div className='border-t-4 w-48 border-black rounded-full'></div>
+              
+            <div className="absolute bottom-1  text-center  ">
+                <div className='border-t-4 w-40 border-black rounded-full'></div>
             </div>
         </div>
     );
