@@ -34,7 +34,7 @@ function Postlogin() {
       </div>
 
       {/* Bottom Div */}
-      <div className="w-full h-3/5 bg-white rounded-t-3xl flex items-center flex-col md:left-96 md:w-1/2">
+      <div className="w-full h-3/5 bg-white rounded-t-3xl flex items-center flex-col md:w-1/2 md:ml-[25%] ">
         <div className="mt-2 text-center text-sm">
           <div className='border-t-4 w-20 rounded-full'></div> {/* Decorative line */}
         </div>
@@ -54,7 +54,13 @@ function Postlogin() {
         </button>
 
         <span className='text-lg cursor-pointer' onClick={() => { navigate('/') }}>Logout</span> {/* Logout option */}
+
+         {/* Last Div */}
+         <div className='mb-2 w-full text-center mt-auto flex justify-center'>
+                <p className='border-t-4 w-40 border-black rounded-md'></p>
+        </div>
       </div>
+       
     </div>
   );
 }

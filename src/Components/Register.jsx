@@ -56,7 +56,7 @@ const Register = () => {
   };
 
   return (
-    <>
+    <div className='flex flex-col h-screen'>
     <div className="flex flex-col items-center md:justify-center h-screen overflow-hidden md:overflow-scroll">
       {/* Top Bar */}
       <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
@@ -147,8 +147,13 @@ const Register = () => {
         <span className='text-black font-semibold'>Already have an account?</span> <span className='text-[#FE8C00] font-semibold'>Sign in</span>
       </Link>
     </div>
+
+     {/* Last Div */}
+     <div className='mb-2 w-full text-center mt-auto flex justify-center'>
+          <p className='border-t-4 w-40 border-black rounded-md'></p>
+     </div>
     
-   </>
+   </div>
   );
 };
 
