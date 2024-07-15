@@ -56,6 +56,7 @@ const Register = () => {
   };
 
   return (
+    <>
     <div className="flex flex-col items-center md:justify-center h-screen overflow-hidden md:overflow-scroll">
       {/* Top Bar */}
       <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
@@ -146,11 +147,11 @@ const Register = () => {
         <span className='text-black font-semibold'>Already have an account?</span> <span className='text-[#FE8C00] font-semibold'>Sign in</span>
       </Link>
 
-      {/* Copyright Section */}
-      <div className="absolute bottom-4 text-center text-sm ">
-        <div className='border-t-4 w-48 border-black rounded-full'></div>
-      </div>
     </div>
+     <div className="absolute bottom-2 text-center text-sm ">
+     <div className='border-t-4 w-48 border-black rounded-full'></div>
+   </div>
+   </>
   );
 };
 

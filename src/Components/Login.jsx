@@ -52,6 +52,7 @@ const Login = () => {
     };
 
     return (
+        <>
         <div className="flex flex-col items-center md:justify-center h-screen overflow-hidden md:overflow-scroll">
             {/* Top Bar */}
             <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
@@ -121,10 +122,11 @@ const Login = () => {
             </Link>
 
               
-            <div className="absolute bottom-0 text-center">
-                <div className='border-t-4 w-40 border-black rounded-full'></div>
-            </div>
         </div>
+         <div className="absolute bottom-1 text-center se:hidden">
+         <div className='border-t-4 w-40 border-black rounded-full'></div>
+     </div>
+     </>
     );
 };
 
