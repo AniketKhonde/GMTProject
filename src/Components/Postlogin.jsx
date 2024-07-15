@@ -53,7 +53,7 @@ function Postlogin() {
           Go to Tracking Screen
         </button>
 
-        <span className='text-lg cursor-pointer' onClick={() => { navigate('/') }}>Logout</span> {/* Logout option */}
+        <span className='text-lg cursor-pointer' onClick={() => { navigate('/Login') }}>Logout</span> {/* Logout option */}
 
          {/* Last Div */}
          <div className='mb-2 w-full text-center mt-auto flex justify-center'>

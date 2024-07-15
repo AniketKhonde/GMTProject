@@ -4,6 +4,10 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Track from './Components/TrackingScreen';
 import Postlogin from './Components/Postlogin';
+import Onboarding1 from './Components/Onboarding1';
+import Onboarding_2 from './Components/Onboarding_2'
+import Onboarding3 from './Components/Onboarding3';
+
 import { AuthProvider } from './AuthContext';
 
 const App = () => {
@@ -11,10 +15,13 @@ const App = () => {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/Track" element={<Track />} />
-          <Route path="/Postlogin" element={<Postlogin />} />
+          <Route path="/" element={<Onboarding1 />} />
+          <Route path="/onboarding_2" element={<Onboarding_2 />} />
+          <Route path="/onboarding3" element={<Onboarding3 />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/track" element={<Track />} />
+          <Route path="/postlogin" element={<Postlogin />} />
         </Routes>
       </AuthProvider>
     </Router>
