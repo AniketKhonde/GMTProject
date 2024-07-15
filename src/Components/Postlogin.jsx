@@ -34,7 +34,7 @@ function Postlogin() {
       </div>
 
       {/* Bottom Div */}
-      <div className="absolute bottom-0 left-0 w-full h-3/5 bg-white rounded-t-3xl flex items-center flex-col">
+      <div className="absolute bottom-0 left-0 w-full h-3/5 bg-white rounded-t-3xl flex items-center flex-col md:left-96 md:w-1/2">
         <div className="mt-2 text-center text-sm">
           <div className='border-t-4 w-20 rounded-full'></div> {/* Decorative line */}
         </div>

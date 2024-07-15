@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../App.css';
 
 const AnalogClock = ({ speed }) => {
+  //Handelling edge case
+  if(speed===7 || speed===9){
+    speed=8
+  }
   const [hrotation, setHrotation] = useState(0); // Rotation angle for the hour hand
   const [mrotation, setMrotation] = useState(0); // Rotation angle for the minute hand
   const [srotation, setSrotation] = useState(0); // Rotation angle for the second hand
