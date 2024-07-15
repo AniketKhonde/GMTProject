@@ -121,7 +121,7 @@ const Login = () => {
             </Link>
 
               
-            <div className="z-50  text-center  ">
+            <div className="absolute bottom-0 text-center">
                 <div className='border-t-4 w-40 border-black rounded-full'></div>
             </div>
         </div>
