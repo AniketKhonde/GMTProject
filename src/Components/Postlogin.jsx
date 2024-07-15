@@ -55,9 +55,7 @@ function Postlogin() {
 
         <span className='text-lg cursor-pointer' onClick={() => { navigate('/') }}>Logout</span> {/* Logout option */}
 
-        <div className="absolute bottom-4 text-center text-sm">
-          <div className='border-t-4 w-40 border-black rounded-full'></div> {/* Decorative line */}
-        </div>
+    
       </div>
     </div>
   );

@@ -119,13 +119,9 @@ const Login = () => {
             </div>
             <Link to="/Register" className="text-blue-500 mt-4 md:mb-12">
                 <span className='text-black font-semibold'>Don't have an account?</span> <span className='text-[#FE8C00] font-semibold'>Register</span>
-            </Link>
-
-              
+            </Link>    
         </div>
-         <div className="absolute bottom-1 text-center se:hidden">
-         <div className='border-t-4 w-40 border-black rounded-full'></div>
-     </div>
+       
      </>
     );
 };

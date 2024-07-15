@@ -146,11 +146,8 @@ const Register = () => {
       <Link to="/" className="text-blue-500 se:mt-1 mt-4 md:mb-12">
         <span className='text-black font-semibold'>Already have an account?</span> <span className='text-[#FE8C00] font-semibold'>Sign in</span>
       </Link>
-
     </div>
-     <div className="absolute bottom-2 text-center text-sm ">
-     <div className='border-t-4 w-48 border-black rounded-full'></div>
-   </div>
+    
    </>
   );
 };
