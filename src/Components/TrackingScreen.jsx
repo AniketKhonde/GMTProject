@@ -67,7 +67,7 @@ const TrackingScreen = () => {
 
   return (
     <div className="bg-[url('/burger.avif')] bg-cover bg-center h-screen md:h-auto flex flex-col md:flex-row justify-center">
-      <div className='bg-white mx-4 rounded-lg p-8 min-h-3/4 flex flex-col md:mt-8 md:mb-8'>
+      <div className='bg-[#FE8C00] mx-4 rounded-3xl p-8 min-h-3/4 flex flex-col md:mt-8 md:mb-8'>
         {/* Top bar with time and network indicators */}
         <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
           <div className="text-lg font-semibold text-white">{time}</div>
@@ -102,7 +102,7 @@ const TrackingScreen = () => {
         </button>
 
         {/* Display shareable URL and conditionally render copy button */}
-        <div className='flex justify-center items-center border mt-4 h-16'>
+        <div className='flex justify-center items-center border mt-4 h-16 bg-slate-100 rounded-md'>
           <p className="p-2 text-sm text-left font-bold">
             {shareableUrl}
           </p>
@@ -117,7 +117,7 @@ const TrackingScreen = () => {
         </div>
 
         {/* Display the fetched quote */}
-        <div className='shadow-lg rounded-md mt-3 mb-6 h-12 overflow-hidden'>
+        <div className='shadow-lg rounded-md mt-3 mb-6 h-12 overflow-hidden bg-slate-100'>
   <p className="text-center text-sm">{quote}</p>
 </div>
       </div>
