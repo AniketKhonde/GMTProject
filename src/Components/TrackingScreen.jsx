@@ -67,7 +67,7 @@ const TrackingScreen = () => {
 
   return (
     <div className="bg-[url('/burger.avif')] bg-cover bg-center h-screen md:h-auto flex flex-col md:flex-row justify-center">
-      <div className='bg-[#FE8C00] mx-4 rounded-3xl p-8 min-h-3/4 flex flex-col md:mt-8 md:mb-8'>
+      <div className='bg-[#FE8C00] mx-4 rounded-3xl p-8 min-h-3/4  flex flex-col md:mt-8 md:mb-8'>
         {/* Top bar with time and network indicators */}
         <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
           <div className="text-lg font-semibold text-white">{time}</div>
@@ -79,8 +79,8 @@ const TrackingScreen = () => {
         </div>
 
         <h1 className="text-2xl font-bold text-center text-white">Tracking Screen</h1>
-        <div className='mt-4 mb-4 border p-4 shadow-md rounded-md bg-slate-100'>
-          <AnalogClock speed={speed} />
+        <div className='mt-4 mb-4 border p-4 shadow-md rounded-md bg-slate-100 '>
+          <AnalogClock speed={speed}  />
         </div>
 
         {/* Slider to adjust speed */}

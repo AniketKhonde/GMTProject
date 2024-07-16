@@ -40,3 +40,15 @@
 .filter-white {
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(100%) contrast(100%);
 }
+
+.circular-progress {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: white; /* Color of the progress */
+  border-left-color: transparent;
+  animation: none;
+}
+
