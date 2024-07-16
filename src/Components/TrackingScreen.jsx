@@ -118,7 +118,7 @@ const TrackingScreen = () => {
 
         {/* Display the fetched quote */}
         <div className='shadow-lg rounded-md mt-3 mb-6 h-12 overflow-hidden bg-slate-100'>
-  <p className="text-center text-sm">{quote}</p>
+  <p className="text-center text-sm mt-2">{quote}</p>
 </div>
       </div>
     </div>
