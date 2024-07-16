@@ -19,12 +19,12 @@ const TrackingScreen = () => {
       const trimmedQuote = words.length > 8
         ? words.slice(0, 8).join(' ') + '.' // Limit quote to 8 words
         : quote;
-      setQuote(trimmedQuote); // Set the quote state
+      setQuote(trimmedQuote);
     };
 
-    fetchQuote(); // Fetch a quote on component mount
-    const interval = setInterval(fetchQuote, 5000); // Set interval to fetch a new quote
-    return () => clearInterval(interval); // Cleanup on unmount
+    fetchQuote();
+    const interval = setInterval(fetchQuote, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -32,15 +32,14 @@ const TrackingScreen = () => {
       const now = new Date();
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
-      setTime(`${hours}:${minutes}`); // Set the current time
+      setTime(`${hours}:${minutes}`);
     };
 
-    const interval = setInterval(updateTime, 1000); // Update time every second
-    updateTime(); // Initialize immediately
-    return () => clearInterval(interval); // Cleanup on unmount
+    const interval = setInterval(updateTime, 1000);
+    updateTime();
+    return () => clearInterval(interval);
   }, []);
 
-  // Set speed from URL parameter when the component mounts
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const speedParam = urlParams.get('speed');
@@ -49,14 +48,21 @@ const TrackingScreen = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // Clear URL and hide copy button on speed change
+    window.history.replaceState(null, '', window.location.pathname);
+    setShareableUrl(''); // Clear shareable URL when speed changes
+  }, [speed]);
+
   const handleShare = () => {
     const url = `${window.location.origin}${window.location.pathname}?speed=${speed}`;
-    setShareableUrl(url); // Set the shareable URL
+    setShareableUrl(url);
+    window.history.replaceState(null, '', url); // Update URL with speed
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shareableUrl);
-    alert('URL copied to clipboard!'); // Notify user of successful copy
+    alert('URL copied to clipboard!');
   };
 
   return (
@@ -64,7 +70,7 @@ const TrackingScreen = () => {
       <div className='bg-white mx-4 rounded-lg p-8 min-h-3/4 flex flex-col md:mt-8 md:mb-8'>
         {/* Top bar with time and network indicators */}
         <div className="absolute top-0 left-0 flex justify-between items-center w-full h-[44px] px-6">
-          <div className="text-lg font-semibold text-white">{time}</div> {/* Display current time */}
+          <div className="text-lg font-semibold text-white">{time}</div>
           <div className="flex items-center">
             <img src="/network.svg" alt="Network" className="h-5 w-5 mx-1 filter-white" />
             <img src="/wifi.svg" alt="Wi-Fi" className="h-5 w-5 mx-1 filter-white" />
@@ -73,9 +79,9 @@ const TrackingScreen = () => {
         </div>
         <h1 className="text-2xl font-bold text-center">Tracking Screen</h1>
         <div className='mt-4 mb-4 border p-4 shadow-md rounded-md bg-slate-100'>
-          <AnalogClock speed={speed} /> {/* Render AnalogClock component */}
+          <AnalogClock speed={speed} />
         </div>
-        
+
         {/* Slider to adjust speed */}
         <input
           type="range"
@@ -85,7 +91,7 @@ const TrackingScreen = () => {
           onChange={(e) => setSpeed(parseInt(e.target.value, 10))}
           className="slider my-5"
         />
-        
+
         {/* Button to generate shareable URL */}
         <button
           onClick={handleShare}
@@ -110,7 +116,7 @@ const TrackingScreen = () => {
         </div>
 
         {/* Display the fetched quote */}
-        <div className=' shadow-lg border rounded-md mt-3 mb-6'>
+        <div className='shadow-lg border rounded-md mt-3 mb-6'>
           <p className="mt-5 mb-4 text-center text-sm">{quote}</p>
         </div>
       </div>
