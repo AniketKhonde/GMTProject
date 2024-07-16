@@ -51,7 +51,6 @@ const AnalogClock = ({ speed }) => {
             // Stop if hour rotation is 60 degrees less than initial
             if (newHrotation <= initialHrotation - 60) {
               clearInterval(intervalId);
-              alert("120 minutes is finished, so we stopped");
             }
 
             return newHrotation;
