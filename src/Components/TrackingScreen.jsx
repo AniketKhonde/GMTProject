@@ -78,7 +78,7 @@ const TrackingScreen = () => {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold text-center">Tracking Screen</h1>
+        <h1 className="text-2xl font-bold text-center text-white">Tracking Screen</h1>
         <div className='mt-4 mb-4 border p-4 shadow-md rounded-md bg-slate-100'>
           <AnalogClock speed={speed} />
         </div>
