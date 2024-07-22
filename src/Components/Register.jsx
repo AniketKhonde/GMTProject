@@ -130,7 +130,7 @@ const Register = () => {
           </form>
         </div>
       </div>
-      <div className='se:mt-2 se:mb-1 mt-8 mb-4 flex justify-center items-center'>
+      <div className='se:mt-6 se:mb-2 mt-8 mb-4 flex justify-center items-center'>
         <div className='border-t-2 w-24 mr-2 border-gray-300'></div>
         Or Sign up with
         <div className='border-t-2 w-24 ml-2 border-gray-300'></div>
@@ -143,7 +143,7 @@ const Register = () => {
           className="cursor-pointer h-10 w-10 se:mt-1 mt-4 transition-transform transform hover:scale-105 border rounded-full p-2"
         />
       </div>
-      <Link to="/Login" className="text-blue-500 se:mt-1 mt-4 md:mb-12">
+      <Link to="/Login" className="text-blue-500 se:mt-2 mt-4 md:mb-12">
         <span className='text-black font-semibold'>Already have an account?</span> <span className='text-[#FE8C00] font-semibold'>Sign in</span>
       </Link>
     </div>
