@@ -63,8 +63,8 @@ function Onboarding_2() {
         <div className='flex items-center mt-20'>
           <h2 className='text-lg cursor-pointer mr-36 text-white'  onClick={() => navigate('/Login')}>Skip</h2>
 
-          <div className='flex items-center'>
-            <h2 className='text-lg cursor-pointer text-white'  onClick={() => navigate('/Onboarding3')}>Next</h2>
+          <div className='flex items-center' onClick={() => navigate('/Onboarding3')}>
+            <h2 className='text-lg cursor-pointer text-white' >Next</h2>
             <img src="/arrowww.png" alt="Right Arrow" className="ml-2 h-4  invert " /> {/* Adjust path and size as needed */}
           </div>
         </div>
