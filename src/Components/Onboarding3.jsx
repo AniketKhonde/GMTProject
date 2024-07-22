@@ -4,8 +4,9 @@ import "../App.css";
 
 function Onboarding3() {
     const [time, setTime] = useState('');
+    const [isClicked, setIsClicked] = useState(false);
     const navigate = useNavigate();
-   
+
 
     useEffect(() => {
         const updateTime = () => {
@@ -20,12 +21,20 @@ function Onboarding3() {
         return () => clearInterval(interval);
     }, []);
 
+    const handleClick = () => {
+        setIsClicked(true);
+        setTimeout(()=>{
+          navigate('/Login')
+        },1000)
+        
+    }
 
-   
 
-  
 
-   
+
+
+
+
 
     return (
         <div className="bg-[url('/burger.avif')] bg-cover bg-center h-screen flex flex-col ">
@@ -40,7 +49,7 @@ function Onboarding3() {
             </div>
 
             {/* Bottom Div */}
-            <div className="mx-8 se:h-[400px] s8:h-[420px] h-[440px] bg-[#FE8C00] rounded-[40px] flex items-center flex-col md:w-1/2 md:ml-[25%] se:mt-[180px] mt-96 s8:mt-80 ">
+            <div className="mx-8 se:h-[420px] s8:h-[420px] h-[440px] bg-[#FE8C00] rounded-[40px] flex items-center flex-col md:w-1/2 md:ml-[25%] se:mt-[180px] mt-96 s8:mt-80 ">
 
 
                 <div className='flex flex-col'>
@@ -67,8 +76,8 @@ function Onboarding3() {
 
                     </div>
 
-                    <div className='flex justify-center  h-28 mt-4 relative' onClick={() => navigate('/Login')}>
-                        <div className='border border-white rounded-full h-28 w-28  flex items-center justify-center'>
+                    <div className='flex justify-center h-24 mt-4 relative' onClick={handleClick}>
+                        <div className={`border ${isClicked ? 'border-4' : 'border-slate-200'} rounded-full h-28 w-28 flex items-center justify-center`}>
                             <div className='w-20 h-20 rounded-full bg-white flex items-center justify-center border'>
                                 <img src="arrow3.png" alt="" className='h-8 w-8' />
                             </div>
